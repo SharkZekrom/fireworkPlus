@@ -12,21 +12,21 @@ public class Firework implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command cmd, String string, String[] args) {
 
         if (commandSender instanceof ConsoleCommandSender || commandSender instanceof BlockCommandSender) {
-            if (args.length == 8) {
+            if (args.length == 9) {
                 //firework+ world -89 72 -24 BALL_LARGE true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE
 
                 Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
 
-                String color1 = (args[6]).split(",")[0];
-                String color2 = (args[6]).split(",")[1];
-                String color3 = (args[6]).split(",")[2];
-                String color4 = (args[6]).split(",")[3];
+                String color1 = (args[7]).split(",")[0];
+                String color2 = (args[7]).split(",")[1];
+                String color3 = (args[7]).split(",")[2];
+                String color4 = (args[7]).split(",")[3];
 
-                String fade1 = (args[7]).split(",")[0];
-                String fade2 = (args[7]).split(",")[1];
-                String fade3 = (args[7]).split(",")[2];
-                String fade4 = (args[7]).split(",")[3];
+                String fade1 = (args[8]).split(",")[0];
+                String fade2 = (args[8]).split(",")[1];
+                String fade3 = (args[8]).split(",")[2];
+                String fade4 = (args[8]).split(",")[3];
 
                 String type = args[4];
 
@@ -55,21 +55,21 @@ public class Firework implements CommandExecutor {
             Player player = (Player) commandSender;
             if (commandSender.hasPermission("firework+.admin")) {
 
-                if (args.length == 8) {
+                if (args.length == 9) {
                     //firework+ world -89 72 -24 BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE
 
                     Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
 
-                    String color1 = (args[6]).split(",")[0];
-                    String color2 = (args[6]).split(",")[1];
-                    String color3 = (args[6]).split(",")[2];
-                    String color4 = (args[6]).split(",")[3];
+                    String color1 = (args[7]).split(",")[0];
+                    String color2 = (args[7]).split(",")[1];
+                    String color3 = (args[7]).split(",")[2];
+                    String color4 = (args[7]).split(",")[3];
 
-                    String fade1 = (args[7]).split(",")[0];
-                    String fade2 = (args[7]).split(",")[1];
-                    String fade3 = (args[7]).split(",")[2];
-                    String fade4 = (args[7]).split(",")[3];
+                    String fade1 = (args[8]).split(",")[0];
+                    String fade2 = (args[8]).split(",")[1];
+                    String fade3 = (args[8]).split(",")[2];
+                    String fade4 = (args[8]).split(",")[3];
 
                     String type = args[4];
 
