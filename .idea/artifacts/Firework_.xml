@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Firework+">
+    <output-path>$USER_HOME$/OneDrive</output-path>
+    <root id="archive" name="Firework+.jar">
+      <element id="module-output" name="Firework+" />
+    </root>
+  </artifact>
+</component>
