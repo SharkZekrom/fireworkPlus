@@ -5,7 +5,27 @@ import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
-public class Firework implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+public class Firework implements CommandExecutor, TabExecutor {
+
+
+
+    public Iterator<Color> iterator() {
+        return new Iterator<Color>() {
+            public boolean hasNext() {
+                return false;
+            }
+            public Color next() {
+                throw new NoSuchElementException();
+            }
+        };
+    }
+
+
 
 
     @Override
@@ -17,34 +37,27 @@ public class Firework implements CommandExecutor {
 
                 Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
+                String[] colors = args[7].split(",");
 
-                String color1 = (args[7]).split(",")[0];
-                String color2 = (args[7]).split(",")[1];
-                String color3 = (args[7]).split(",")[2];
-                String color4 = (args[7]).split(",")[3];
-
-                String fade1 = (args[8]).split(",")[0];
-                String fade2 = (args[8]).split(",")[1];
-                String fade3 = (args[8]).split(",")[2];
-                String fade4 = (args[8]).split(",")[3];
+                String[] fades = args[8].split(",");
 
                 String type = args[4];
 
                 if (args[5].equalsIgnoreCase("true")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithFlickerWithTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                        FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                        FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades);
                     }
 
                 }
                 if (args[5].equalsIgnoreCase("false")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                        FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                        FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades);
                     }
                 }
 
@@ -61,33 +74,27 @@ public class Firework implements CommandExecutor {
                     Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
 
-                    String color1 = (args[7]).split(",")[0];
-                    String color2 = (args[7]).split(",")[1];
-                    String color3 = (args[7]).split(",")[2];
-                    String color4 = (args[7]).split(",")[3];
+                    String[] colors = args[7].split(",");
 
-                    String fade1 = (args[8]).split(",")[0];
-                    String fade2 = (args[8]).split(",")[1];
-                    String fade3 = (args[8]).split(",")[2];
-                    String fade4 = (args[8]).split(",")[3];
+                    String[] fades = args[8].split(",");
 
                     String type = args[4];
 
                     if (args[5].equalsIgnoreCase("true")) {
                         if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithFlickerWithTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                            FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades);
                         }
                         if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                            FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades);
                         }
 
                     }
                     if (args[5].equalsIgnoreCase("false")) {
                         if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                            FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades);
                         }
                         if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, color1, color2, color3, color4, fade1, fade2, fade3, fade4);
+                            FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades);
                         }
                     }
 
@@ -96,16 +103,67 @@ public class Firework implements CommandExecutor {
                 } else {
                     player.sendMessage("§b==========[Firework+]==========");
                     player.sendMessage(ChatColor.AQUA + "");
-                    player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,color2,color3,color4 fade1,fade2,fade3,fade4");
+                    player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,...> fade1,...");
 
                 }
             } else {
                 player.sendMessage("§b==========[Firework+]==========");
                 player.sendMessage(ChatColor.AQUA + "");
-                player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,color2,color3,color4 fade1,fade2,fade3,fade4");
+                player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,...> fade1,...");
 
             }
         }
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<World>");
+            return arguments;
+        }
+        if (args.length == 2) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Locx>");
+            return arguments;
+        }
+        if (args.length == 3) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Locy>");
+            return arguments;
+        }
+        if (args.length == 4) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Locz>");
+            return arguments;
+        }
+        if (args.length == 5) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Type>");
+            return arguments;
+        }
+        if (args.length == 6) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Flicker: true/false>");
+            return arguments;
+        }
+        if (args.length == 7) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<Trail: true/false>");
+            return arguments;
+        }
+        if (args.length == 8) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<FADE1,...>");
+            return arguments;
+        }
+        if (args.length == 9) {
+            List<String> arguments = new ArrayList<>();
+            arguments.add("<FADE1,...>");
+            return arguments;
+        }
+        return null;
+
     }
 }

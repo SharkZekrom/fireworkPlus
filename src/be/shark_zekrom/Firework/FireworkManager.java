@@ -10,32 +10,29 @@ import org.bukkit.inventory.meta.FireworkMeta;
 public class FireworkManager implements Listener {
 
 
-    public static void FireworkWithFlickerWithTrail(Location loc, String type, String color1, String color2, String color3, String color4, String fade1, String fade2, String fade3, String fade4){
+    public static void FireworkWithFlickerWithTrail(Location loc, String type, String[] colors, String[] fades){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
         FireworkEffect.Type fwType = FireworkEffect.Type.valueOf(type);
-        Color Color1 = getColor(color1);
-        Color Color2 = getColor(color2);
-        Color Color3 = getColor(color3);
-        Color Color4 = getColor(color4);
-        Color Fade1 = getColor(fade1);
-        Color Fade2 = getColor(fade2);
-        Color Fade3 = getColor(fade3);
-        Color Fade4 = getColor(fade4);
 
         FireworkEffect.Builder builder = FireworkEffect.builder();
         builder.withTrail()
                 .withFlicker()
-                .withColor(Color1)
-                .withColor(Color2)
-                .withColor(Color3)
-                .withColor(Color4)
-                .withFade(Fade1)
-                .withFade(Fade2)
-                .withFade(Fade3)
-                .withFade(Fade4)
                 .with(fwType);
+
+        for(int i = 0; i < colors.length; ++i){
+            String colorstring = colors[i];
+            Color color = getColor(colorstring);
+            builder.withColor(color);
+        }
+
+        for(int i = 0; i < fades.length; ++i){
+            String fadestring = fades[i];
+            Color fade = getColor(fadestring);
+            builder.withFade(fade);
+        }
+
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
         Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
@@ -45,31 +42,28 @@ public class FireworkManager implements Listener {
             }
         }, 1L);
     }
-    public static void FireworkWithFlickerWithoutTrail(Location loc, String type, String color1, String color2, String color3, String color4, String fade1, String fade2, String fade3, String fade4){
+    public static void FireworkWithFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
         FireworkEffect.Type fwType = FireworkEffect.Type.valueOf(type);
-        Color Color1 = getColor(color1);
-        Color Color2 = getColor(color2);
-        Color Color3 = getColor(color3);
-        Color Color4 = getColor(color4);
-        Color Fade1 = getColor(fade1);
-        Color Fade2 = getColor(fade2);
-        Color Fade3 = getColor(fade3);
-        Color Fade4 = getColor(fade4);
 
         FireworkEffect.Builder builder = FireworkEffect.builder();
         builder.withFlicker()
-                .withColor(Color1)
-                .withColor(Color2)
-                .withColor(Color3)
-                .withColor(Color4)
-                .withFade(Fade1)
-                .withFade(Fade2)
-                .withFade(Fade3)
-                .withFade(Fade4)
                 .with(fwType);
+
+        for(int i = 0; i < colors.length; ++i){
+            String colorstring = colors[i];
+            Color color = getColor(colorstring);
+            builder.withColor(color);
+        }
+
+        for(int i = 0; i < fades.length; ++i){
+            String fadestring = fades[i];
+            Color fade = getColor(fadestring);
+            builder.withFade(fade);
+        }
+
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
         Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
@@ -81,31 +75,28 @@ public class FireworkManager implements Listener {
     }
 
 
-    public static void FireworkWithoutFlickerWithTrail(Location loc, String type, String color1, String color2, String color3, String color4, String fade1, String fade2, String fade3, String fade4){
+    public static void FireworkWithoutFlickerWithTrail(Location loc, String type, String[] colors, String[] fades){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
         FireworkEffect.Type fwType = FireworkEffect.Type.valueOf(type);
-        Color Color1 = getColor(color1);
-        Color Color2 = getColor(color2);
-        Color Color3 = getColor(color3);
-        Color Color4 = getColor(color4);
-        Color Fade1 = getColor(fade1);
-        Color Fade2 = getColor(fade2);
-        Color Fade3 = getColor(fade3);
-        Color Fade4 = getColor(fade4);
 
         FireworkEffect.Builder builder = FireworkEffect.builder();
         builder.withTrail()
-                .withColor(Color1)
-                .withColor(Color2)
-                .withColor(Color3)
-                .withColor(Color4)
-                .withFade(Fade1)
-                .withFade(Fade2)
-                .withFade(Fade3)
-                .withFade(Fade4)
                 .with(fwType);
+
+        for(int i = 0; i < colors.length; ++i){
+            String colorstring = colors[i];
+            Color color = getColor(colorstring);
+            builder.withColor(color);
+        }
+
+        for(int i = 0; i < fades.length; ++i){
+            String fadestring = fades[i];
+            Color fade = getColor(fadestring);
+            builder.withFade(fade);
+        }
+
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
         Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
@@ -116,30 +107,27 @@ public class FireworkManager implements Listener {
         }, 1L);
     }
 
-    public static void FireworkWithoutFlickerWithoutTrail(Location loc, String type, String color1, String color2, String color3, String color4, String fade1, String fade2, String fade3, String fade4){
+    public static void FireworkWithoutFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
         FireworkEffect.Type fwType = FireworkEffect.Type.valueOf(type);
-        Color Color1 = getColor(color1);
-        Color Color2 = getColor(color2);
-        Color Color3 = getColor(color3);
-        Color Color4 = getColor(color4);
-        Color Fade1 = getColor(fade1);
-        Color Fade2 = getColor(fade2);
-        Color Fade3 = getColor(fade3);
-        Color Fade4 = getColor(fade4);
 
         FireworkEffect.Builder builder = FireworkEffect.builder();
-        builder.withColor(Color1)
-                .withColor(Color2)
-                .withColor(Color3)
-                .withColor(Color4)
-                .withFade(Fade1)
-                .withFade(Fade2)
-                .withFade(Fade3)
-                .withFade(Fade4)
-                .with(fwType);
+        builder.with(fwType);
+
+        for(int i = 0; i < colors.length; ++i){
+            String colorstring = colors[i];
+            Color color = getColor(colorstring);
+            builder.withColor(color);
+        }
+
+        for(int i = 0; i < fades.length; ++i){
+            String fadestring = fades[i];
+            Color fade = getColor(fadestring);
+            builder.withFade(fade);
+        }
+
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
         Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
