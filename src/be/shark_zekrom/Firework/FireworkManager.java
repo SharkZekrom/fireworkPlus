@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 public class FireworkManager implements Listener {
 
 
-    public static void FireworkWithFlickerWithTrail(Location loc, String type, String[] colors, String[] fades){
+    public static void FireworkWithFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -32,17 +32,25 @@ public class FireworkManager implements Listener {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
-
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                fw.detonate();
-            }
-        }, 1L);
+
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
+        else {
+            Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
+                @Override
+                public void run() {
+                    fw.detonate();
+                }
+            }, 1L);
+        }
     }
-    public static void FireworkWithFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades){
+    public static void FireworkWithFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -64,18 +72,26 @@ public class FireworkManager implements Listener {
             builder.withFade(fade);
         }
 
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                fw.detonate();
-            }
-        }, 1L);
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
+        else {
+            Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
+                @Override
+                public void run() {
+                    fw.detonate();
+                }
+            }, 1L);
+        }
     }
 
 
-    public static void FireworkWithoutFlickerWithTrail(Location loc, String type, String[] colors, String[] fades){
+    public static void FireworkWithoutFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -96,18 +112,26 @@ public class FireworkManager implements Listener {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
 
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                fw.detonate();
-            }
-        }, 1L);
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
+        else {
+            Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
+                @Override
+                public void run() {
+                    fw.detonate();
+                }
+            }, 1L);
+        }
     }
 
-    public static void FireworkWithoutFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades){
+    public static void FireworkWithoutFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -127,15 +151,22 @@ public class FireworkManager implements Listener {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
-
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
         fwmeta.addEffects(builder.build());
         fw.setFireworkMeta(fwmeta);
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                fw.detonate();
-            }
-        }, 1L);
+        if (power != 0) {
+            fwmeta.setPower(power);
+        }
+        else {
+            Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
+                @Override
+                public void run() {
+                    fw.detonate();
+                }
+            }, 1L);
+        }
     }
 
 

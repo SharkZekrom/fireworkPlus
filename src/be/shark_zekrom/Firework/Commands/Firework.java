@@ -32,8 +32,8 @@ public class Firework implements CommandExecutor, TabExecutor {
     public boolean onCommand(CommandSender commandSender, Command cmd, String string, String[] args) {
 
         if (commandSender instanceof ConsoleCommandSender || commandSender instanceof BlockCommandSender) {
-            if (args.length == 9) {
-                //firework+ world -89 72 -24 BALL_LARGE true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE
+            if (args.length == 9 || args.length == 10) {
+                //firework+ world -89 72 -24 BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE 1
 
                 Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
@@ -42,22 +42,25 @@ public class Firework implements CommandExecutor, TabExecutor {
                 String[] fades = args[8].split(",");
 
                 String type = args[4];
-
+                int power = 0;
+                if (args.length == 10) {
+                    power = Integer.parseInt(args[9]);
+                }
                 if (args[5].equalsIgnoreCase("true")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades);
+                        FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades);
+                        FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
                     }
 
                 }
                 if (args[5].equalsIgnoreCase("false")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades);
+                        FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades);
+                        FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
                     }
                 }
 
@@ -68,8 +71,8 @@ public class Firework implements CommandExecutor, TabExecutor {
             Player player = (Player) commandSender;
             if (commandSender.hasPermission("firework+.admin")) {
 
-                if (args.length == 9) {
-                    //firework+ world -89 72 -24 BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE
+                if (args.length == 9 || args.length == 10) {
+                    //firework+ world -89 72 -24 BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE 1
 
                     Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
@@ -79,22 +82,26 @@ public class Firework implements CommandExecutor, TabExecutor {
                     String[] fades = args[8].split(",");
 
                     String type = args[4];
+                    int power = 0;
+                    if (args.length == 10) {
+                        power = Integer.parseInt(args[9]);
+                    }
 
                     if (args[5].equalsIgnoreCase("true")) {
                         if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades);
+                            FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
                         }
                         if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades);
+                            FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
                         }
 
                     }
                     if (args[5].equalsIgnoreCase("false")) {
                         if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades);
+                            FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
                         }
                         if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades);
+                            FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
                         }
                     }
 
