@@ -103,13 +103,13 @@ public class Firework implements CommandExecutor, TabExecutor {
                 } else {
                     player.sendMessage("§b==========[Firework+]==========");
                     player.sendMessage(ChatColor.AQUA + "");
-                    player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,...> fade1,...");
+                    player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,... fade1,...");
 
                 }
             } else {
                 player.sendMessage("§b==========[Firework+]==========");
                 player.sendMessage(ChatColor.AQUA + "");
-                player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,...> fade1,...");
+                player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,... fade1,...");
 
             }
         }
