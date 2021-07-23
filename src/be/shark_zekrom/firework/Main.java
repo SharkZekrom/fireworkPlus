@@ -23,7 +23,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        Bukkit.getLogger().info("Plugin enabled !");
+        Bukkit.getLogger().info("Firework+ enabled !");
         PluginManager pm = getServer().getPluginManager();
 
 
