@@ -1,6 +1,6 @@
-package be.shark_zekrom.Firework.Commands;
+package be.shark_zekrom.firework.commands;
 
-import be.shark_zekrom.Firework.FireworkManager;
+import be.shark_zekrom.firework.FireworkManager;
 import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;

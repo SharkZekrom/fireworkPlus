@@ -1,6 +1,6 @@
-package be.shark_zekrom.Firework;
+package be.shark_zekrom.firework;
 
-import be.shark_zekrom.Firework.Commands.Firework;
+import be.shark_zekrom.firework.commands.Firework;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
