@@ -60,14 +60,12 @@ public class FireworkManager implements Listener {
         builder.withFlicker()
                 .with(fwType);
 
-        for(int i = 0; i < colors.length; ++i){
-            String colorstring = colors[i];
+        for (String colorstring : colors) {
             Color color = getColor(colorstring);
             builder.withColor(color);
         }
 
-        for(int i = 0; i < fades.length; ++i){
-            String fadestring = fades[i];
+        for (String fadestring : fades) {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
@@ -101,14 +99,12 @@ public class FireworkManager implements Listener {
         builder.withTrail()
                 .with(fwType);
 
-        for(int i = 0; i < colors.length; ++i){
-            String colorstring = colors[i];
+        for (String colorstring : colors) {
             Color color = getColor(colorstring);
             builder.withColor(color);
         }
 
-        for(int i = 0; i < fades.length; ++i){
-            String fadestring = fades[i];
+        for (String fadestring : fades) {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
@@ -140,14 +136,12 @@ public class FireworkManager implements Listener {
         FireworkEffect.Builder builder = FireworkEffect.builder();
         builder.with(fwType);
 
-        for(int i = 0; i < colors.length; ++i){
-            String colorstring = colors[i];
+        for (String colorstring : colors) {
             Color color = getColor(colorstring);
             builder.withColor(color);
         }
 
-        for(int i = 0; i < fades.length; ++i){
-            String fadestring = fades[i];
+        for (String fadestring : fades) {
             Color fade = getColor(fadestring);
             builder.withFade(fade);
         }
@@ -174,8 +168,7 @@ public class FireworkManager implements Listener {
 
 
 
-    public static Color getColor(String paramString) {
-        String color = paramString;
+    public static Color getColor(String color) {
         if (color.equalsIgnoreCase("AQUA")) return Color.AQUA;
         if (color.equalsIgnoreCase("BLACK")) return Color.BLACK;
         if (color.equalsIgnoreCase("BLUE")) return Color.BLUE;
