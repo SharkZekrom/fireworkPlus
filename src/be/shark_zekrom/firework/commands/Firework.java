@@ -72,7 +72,6 @@ public class Firework implements CommandExecutor, TabExecutor {
             if (commandSender.hasPermission("firework+.admin")) {
 
                 if (args.length == 9 || args.length == 10) {
-                    //firework+ world -89 72 -24 BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE 1
 
                     Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
 
