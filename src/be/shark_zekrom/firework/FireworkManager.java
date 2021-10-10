@@ -167,6 +167,7 @@ public class FireworkManager implements Listener {
 
 
 
+
     public static Color getColor(String color) {
         if (color.equalsIgnoreCase("AQUA")) return Color.AQUA;
         if (color.equalsIgnoreCase("BLACK")) return Color.BLACK;

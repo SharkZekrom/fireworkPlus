@@ -28,6 +28,7 @@ public class Firework implements CommandExecutor, TabExecutor {
 
 
 
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command cmd, String string, String[] args) {
 
