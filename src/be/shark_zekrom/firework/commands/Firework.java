@@ -72,46 +72,82 @@ public class Firework implements CommandExecutor, TabExecutor {
             Player player = (Player) commandSender;
             if (commandSender.hasPermission("firework+.admin")) {
 
-                if (args.length == 9 || args.length == 10) {
+                if (args[0].equals("PLAYERLOCATION")) {
+                    //firework+ PLAYERLOCATION <player> BALL_LARGE true true YELLOW,RED,WHITE,BLUE YELLOW,RED,WHITE,BLUE 1
 
-                    Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
+                    Player playerlocation = Bukkit.getPlayer(args[1]);
 
+                    String[] colors = args[5].split(",");
 
-                    String[] colors = args[7].split(",");
+                    String[] fades = args[6].split(",");
 
-                    String[] fades = args[8].split(",");
-
-                    String type = args[4];
+                    String type = args[2];
                     int power = 0;
                     if (args.length == 10) {
-                        power = Integer.parseInt(args[9]);
+                        power = Integer.parseInt(args[7]);
                     }
 
-                    if (args[5].equalsIgnoreCase("true")) {
-                        if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
+                    if (args[3].equalsIgnoreCase("true")) {
+                        if (args[4].equalsIgnoreCase("true")) {
+                            FireworkManager.FireworkWithFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
-                        if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
+                        if (args[4].equalsIgnoreCase("false")) {
+                            FireworkManager.FireworkWithFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
 
                     }
-                    if (args[5].equalsIgnoreCase("false")) {
-                        if (args[6].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
+                    if (args[3].equalsIgnoreCase("false")) {
+                        if (args[4].equalsIgnoreCase("true")) {
+                            FireworkManager.FireworkWithoutFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
-                        if (args[6].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
+                        if (args[4].equalsIgnoreCase("false")) {
+                            FireworkManager.FireworkWithoutFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
                     }
-
-
 
                 } else {
-                    player.sendMessage("§b==========[Firework+]==========");
-                    player.sendMessage(ChatColor.AQUA + "");
-                    player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,... fade1,...");
 
+
+                    if (args.length == 9 || args.length == 10) {
+
+                        Location loc = new Location(Bukkit.getWorld(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
+
+
+                        String[] colors = args[7].split(",");
+
+                        String[] fades = args[8].split(",");
+
+                        String type = args[4];
+                        int power = 0;
+                        if (args.length == 10) {
+                            power = Integer.parseInt(args[9]);
+                        }
+
+                        if (args[5].equalsIgnoreCase("true")) {
+                            if (args[6].equalsIgnoreCase("true")) {
+                                FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
+                            }
+                            if (args[6].equalsIgnoreCase("false")) {
+                                FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
+                            }
+
+                        }
+                        if (args[5].equalsIgnoreCase("false")) {
+                            if (args[6].equalsIgnoreCase("true")) {
+                                FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
+                            }
+                            if (args[6].equalsIgnoreCase("false")) {
+                                FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
+                            }
+                        }
+
+
+                    } else {
+                        player.sendMessage("§b==========[Firework+]==========");
+                        player.sendMessage(ChatColor.AQUA + "");
+                        player.sendMessage(ChatColor.AQUA + "/firework+ world locx locy locz type true/false color1,... fade1,...");
+
+                    }
                 }
             } else {
                 player.sendMessage("§b==========[Firework+]==========");
