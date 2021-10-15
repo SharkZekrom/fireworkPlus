@@ -82,10 +82,7 @@ public class Firework implements CommandExecutor, TabExecutor {
                     String[] fades = args[6].split(",");
 
                     String type = args[2];
-                    int power = 0;
-                    if (args.length == 10) {
-                        power = Integer.parseInt(args[7]);
-                    }
+                    int power = Integer.parseInt(args[7]);
 
                     if (args[3].equalsIgnoreCase("true")) {
                         if (args[4].equalsIgnoreCase("true")) {
