@@ -49,19 +49,19 @@ public class Firework implements CommandExecutor, TabExecutor {
                 }
                 if (args[5].equalsIgnoreCase("true")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
+                        FireworkManager.fireworkWithFlickerWithTrail(loc, type, colors, fades, power);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
+                        FireworkManager.fireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
                     }
 
                 }
                 if (args[5].equalsIgnoreCase("false")) {
                     if (args[6].equalsIgnoreCase("true")) {
-                        FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
+                        FireworkManager.fireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
                     }
                     if (args[6].equalsIgnoreCase("false")) {
-                        FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
+                        FireworkManager.fireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
                     }
                 }
 
@@ -86,19 +86,19 @@ public class Firework implements CommandExecutor, TabExecutor {
 
                     if (args[3].equalsIgnoreCase("true")) {
                         if (args[4].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
+                            FireworkManager.fireworkWithFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
                         if (args[4].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
+                            FireworkManager.fireworkWithFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
 
                     }
                     if (args[3].equalsIgnoreCase("false")) {
                         if (args[4].equalsIgnoreCase("true")) {
-                            FireworkManager.FireworkWithoutFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
+                            FireworkManager.fireworkWithoutFlickerWithTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
                         if (args[4].equalsIgnoreCase("false")) {
-                            FireworkManager.FireworkWithoutFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
+                            FireworkManager.fireworkWithoutFlickerWithoutTrail(playerlocation.getLocation().add(0,1,0), type, colors, fades, power);
                         }
                     }
 
@@ -122,19 +122,19 @@ public class Firework implements CommandExecutor, TabExecutor {
 
                         if (args[5].equalsIgnoreCase("true")) {
                             if (args[6].equalsIgnoreCase("true")) {
-                                FireworkManager.FireworkWithFlickerWithTrail(loc, type, colors, fades, power);
+                                FireworkManager.fireworkWithFlickerWithTrail(loc, type, colors, fades, power);
                             }
                             if (args[6].equalsIgnoreCase("false")) {
-                                FireworkManager.FireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
+                                FireworkManager.fireworkWithFlickerWithoutTrail(loc, type, colors, fades, power);
                             }
 
                         }
                         if (args[5].equalsIgnoreCase("false")) {
                             if (args[6].equalsIgnoreCase("true")) {
-                                FireworkManager.FireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
+                                FireworkManager.fireworkWithoutFlickerWithTrail(loc, type, colors, fades, power);
                             }
                             if (args[6].equalsIgnoreCase("false")) {
-                                FireworkManager.FireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
+                                FireworkManager.fireworkWithoutFlickerWithoutTrail(loc, type, colors, fades, power);
                             }
                         }
 

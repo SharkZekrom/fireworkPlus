@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 public class FireworkManager implements Listener {
 
 
-    public static void FireworkWithFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
+    public static void fireworkWithFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -49,7 +49,7 @@ public class FireworkManager implements Listener {
             }, 1L);
         }
     }
-    public static void FireworkWithFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
+    public static void fireworkWithFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -88,7 +88,7 @@ public class FireworkManager implements Listener {
     }
 
 
-    public static void FireworkWithoutFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
+    public static void fireworkWithoutFlickerWithTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
@@ -126,7 +126,7 @@ public class FireworkManager implements Listener {
         }
     }
 
-    public static void FireworkWithoutFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
+    public static void fireworkWithoutFlickerWithoutTrail(Location loc, String type, String[] colors, String[] fades, int power){
         Firework fw = (Firework)loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwmeta = fw.getFireworkMeta();
 
